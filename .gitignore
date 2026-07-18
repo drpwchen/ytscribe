@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Never commit fetched content or downloaded media
+transcripts/
+_vtt/
+_audio/
+*.vtt
+*.m4a
+*.mp4
+*.webm
