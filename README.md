@@ -96,6 +96,14 @@ code-switched Mandarin/English, a local
 [Breeze-ASR-25](https://huggingface.co/MediaTek-Research/Breeze-ASR-25)
 conversion measurably beats `large-v3`; point `--model` at the directory.
 
+## Related
+
+[**asr-benchmark**](https://github.com/drpwchen/asr-benchmark) — score ASR models
+on your own audio without ground-truth transcripts. If you are using the
+`--whisper` path here and want to know which model actually transcribes your
+domain best, that is the tool that answers it. The VAD and batch-size defaults
+documented above came out of exactly that kind of measurement.
+
 ## Please use this responsibly
 
 Transcripts are the creator's work. Fetching them for your own reading, search,
