@@ -90,6 +90,7 @@ seconds once re-ran in 24 seconds on an idle GPU.
 | `--language` | auto | Force a code, e.g. `zh` |
 | `--only` | all | Comma-separated video IDs |
 | `--keep-audio` | off | Audio is deleted after transcription by default |
+| `--sleep` | `1.5` | Seconds between videos |
 
 Any model `faster-whisper` accepts works, including fine-tunes. For
 code-switched Mandarin/English, a local
