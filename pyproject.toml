@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ytscribe"
-version = "0.1.0"
+version = "0.1.1"
 description = "Fetch YouTube transcripts channel-wide — subtitles first, local Whisper as fallback"
 readme = "README.md"
 requires-python = ">=3.10"

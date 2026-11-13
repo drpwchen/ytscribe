@@ -3,6 +3,13 @@
 All notable changes to this project are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/); this project uses loose semantic versioning.
 
+## [0.1.1] — 2026-11-14 — Docs: README quality pass
+
+Documentation only; the one code change is the version string.
+
+### Docs
+- README: Quickstart with the expected console output, a requirements-and-cost section, a Limitations section, and a support line.
+
 ## [0.1.0] — 2026-07-30 — Initial public release
 
 Channel-wide YouTube transcript fetching that spends compute only where it has to:

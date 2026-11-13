@@ -10,13 +10,24 @@ API, and no video file is ever downloaded or kept.
 Built to feed transcripts into an LLM *later*, without spending tokens on the
 fetching itself.
 
+## Quickstart
+
 ```bash
+git clone https://github.com/drpwchen/yt-transcript-kit && cd yt-transcript-kit
+pip install -e .
+
 # Subtitles only
 ytscribe https://www.youtube.com/@somechannel -o transcripts
 
 # Subtitles, plus local Whisper for videos that have none
 ytscribe https://www.youtube.com/@somechannel -o transcripts --whisper
 ```
+
+You should see `[1/2] Listing videos…`, then one line per video (`sub` for a subtitle
+track, `ASR` for Whisper, `---` for a video with neither), and a closing
+`Done: N from subtitles, M via Whisper, K already present`.
+
+> 🧋 Saved you some time? [Buy me a drink](https://drpwchen.com/en/support/).
 
 Output is one Markdown file per video, with YAML frontmatter:
 
@@ -47,6 +58,21 @@ pip install -e ".[asr]"   # plus local Whisper
 Needs [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) on PATH (`pip install yt-dlp`).
 The `asr` extra pulls in `faster-whisper`, which needs a CUDA-capable GPU to be
 worth using, plus `ffmpeg` on PATH.
+
+## Requirements and cost
+
+- Python 3.10+, any OS. [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) is installed as a dependency.
+- Subtitles-only mode: no GPU, no account, no API key. Free.
+- `--whisper` mode: the `asr` extra (`faster-whisper`), `ffmpeg` on PATH, and a CUDA GPU
+  (the default is `--device cuda`). The model is downloaded once from Hugging Face. Still free, no API key.
+
+## Limitations
+
+- A video with no subtitle track and no `--whisper` gets no transcript; it is listed at the end of the run.
+- Subtitles are whatever the uploader or YouTube's auto-captioning produced; they are not corrected.
+- `--whisper` temporarily downloads each video's audio (deleted afterwards unless `--keep-audio`).
+- It relies on `yt-dlp`, so a YouTube-side change can break fetching until `yt-dlp` is updated.
+- A video that fails is reported and skipped; the batch continues.
 
 ## Things that will bite you
 
